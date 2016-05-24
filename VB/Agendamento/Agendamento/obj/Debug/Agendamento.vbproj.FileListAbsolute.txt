@@ -1,0 +1,12 @@
+C:\Users\Arão Alves\Documents\ceuma\ceuma\APlicação VB\Aplicação para github\Agendamento\Agendamento\bin\Debug\Agendamento.exe.config
+C:\Users\Arão Alves\Documents\ceuma\ceuma\APlicação VB\Aplicação para github\Agendamento\Agendamento\bin\Debug\Agendamento.exe
+C:\Users\Arão Alves\Documents\ceuma\ceuma\APlicação VB\Aplicação para github\Agendamento\Agendamento\bin\Debug\Agendamento.pdb
+C:\Users\Arão Alves\Documents\ceuma\ceuma\APlicação VB\Aplicação para github\Agendamento\Agendamento\bin\Debug\Agendamento.xml
+C:\Users\Arão Alves\Documents\ceuma\ceuma\APlicação VB\Aplicação para github\Agendamento\Agendamento\obj\Debug\Agendamento.CadUsuario.resources
+C:\Users\Arão Alves\Documents\ceuma\ceuma\APlicação VB\Aplicação para github\Agendamento\Agendamento\obj\Debug\Agendamento.Resources.resources
+C:\Users\Arão Alves\Documents\ceuma\ceuma\APlicação VB\Aplicação para github\Agendamento\Agendamento\obj\Debug\Agendamento.vbproj.GenerateResource.Cache
+C:\Users\Arão Alves\Documents\ceuma\ceuma\APlicação VB\Aplicação para github\Agendamento\Agendamento\obj\Debug\Agendamento.exe
+C:\Users\Arão Alves\Documents\ceuma\ceuma\APlicação VB\Aplicação para github\Agendamento\Agendamento\obj\Debug\Agendamento.xml
+C:\Users\Arão Alves\Documents\ceuma\ceuma\APlicação VB\Aplicação para github\Agendamento\Agendamento\obj\Debug\Agendamento.pdb
+C:\Users\Arão Alves\Documents\ceuma\ceuma\APlicação VB\Aplicação para github\Agendamento\Agendamento\bin\Debug\MySql.Data.dll
+C:\Users\Arão Alves\Documents\ceuma\ceuma\APlicação VB\Aplicação para github\Agendamento\Agendamento\obj\Debug\Agendamento.vbprojResolveAssemblyReference.cache
