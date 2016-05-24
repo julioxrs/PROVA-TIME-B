@@ -62,13 +62,14 @@ public class MainActivity extends AppCompatActivity {
         campoSenha.setTranslationX(1000);
         botaoLogin.setTranslationX(-1000);
         logo  = (ImageView) findViewById(R.id.imageView);
-        logo.animate().alpha(1f).setDuration(2000);
+
+        /*logo.setAlpha(0f);
+        logo.animate().alpha(1f).setDuration(2000);*/
 
 
-
-            campoCPD.animate().translationX(0f).setDuration(1000);
-            campoSenha.animate().translationX(0f).setDuration(1000);
-            botaoLogin.animate().translationX(0f).setDuration(1000);
+            campoCPD.animate().translationX(0f).setDuration(2000);
+            campoSenha.animate().translationX(0f).setDuration(2000);
+            botaoLogin.animate().translationX(0f).setDuration(2000);
 
 
 
