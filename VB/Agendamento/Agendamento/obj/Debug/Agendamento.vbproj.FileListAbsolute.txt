@@ -22,3 +22,4 @@ C:\Users\Arão Alves\Documents\ceuma\PROVA-TIME-B\VB\Agendamento\Agendamento\obj
 C:\Users\Arão Alves\Documents\ceuma\PROVA-TIME-B\VB\Agendamento\Agendamento\obj\Debug\Agendamento.CadUsuario.resources
 C:\Users\Arão Alves\Documents\ceuma\PROVA-TIME-B\VB\Agendamento\Agendamento\obj\Debug\Agendamento.Resources.resources
 C:\Users\Arão Alves\Documents\ceuma\PROVA-TIME-B\VB\Agendamento\Agendamento\obj\Debug\Agendamento.vbproj.GenerateResource.Cache
+C:\Users\Arão Alves\Documents\ceuma\PROVA-TIME-B\VB\Agendamento\Agendamento\obj\Debug\Agendamento.Login.resources

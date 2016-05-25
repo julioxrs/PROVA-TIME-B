@@ -22,6 +22,7 @@ Partial Class CadUsuario
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CadUsuario))
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtEmail = New System.Windows.Forms.TextBox()
@@ -37,7 +38,13 @@ Partial Class CadUsuario
         Me.InícioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CadastroDeHoráriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SairToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cbTipoUsuario = New System.Windows.Forms.ComboBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label5
@@ -109,7 +116,7 @@ Partial Class CadUsuario
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(50, 290)
+        Me.Button1.Location = New System.Drawing.Point(50, 328)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(131, 38)
         Me.Button1.TabIndex = 12
@@ -138,7 +145,7 @@ Partial Class CadUsuario
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InícioToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(603, 33)
+        Me.MenuStrip1.Size = New System.Drawing.Size(772, 33)
         Me.MenuStrip1.TabIndex = 25
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -161,11 +168,63 @@ Partial Class CadUsuario
         Me.SairToolStripMenuItem.Size = New System.Drawing.Size(266, 30)
         Me.SairToolStripMenuItem.Text = "Sair"
         '
+        'cbTipoUsuario
+        '
+        Me.cbTipoUsuario.FormattingEnabled = True
+        Me.cbTipoUsuario.Items.AddRange(New Object() {"Aluno", "Funcionário"})
+        Me.cbTipoUsuario.Location = New System.Drawing.Point(157, 277)
+        Me.cbTipoUsuario.Name = "cbTipoUsuario"
+        Me.cbTipoUsuario.Size = New System.Drawing.Size(203, 28)
+        Me.cbTipoUsuario.TabIndex = 26
+        Me.cbTipoUsuario.Text = "Aluno"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(49, 285)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(102, 20)
+        Me.Label6.TabIndex = 27
+        Me.Label6.Text = "Tipo Usuário:"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Image = CType(resources.GetObject("Label7.Image"), System.Drawing.Image)
+        Me.Label7.Location = New System.Drawing.Point(623, 146)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(0, 20)
+        Me.Label7.TabIndex = 28
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(567, 58)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(169, 171)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 29
+        Me.PictureBox1.TabStop = False
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(203, 328)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(157, 38)
+        Me.Button2.TabIndex = 30
+        Me.Button2.Text = "Limpar Campos"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'CadUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(603, 355)
+        Me.ClientSize = New System.Drawing.Size(772, 398)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.cbTipoUsuario)
         Me.Controls.Add(Me.txtCpf)
         Me.Controls.Add(Me.txtTelefone)
         Me.Controls.Add(Me.Label5)
@@ -185,6 +244,7 @@ Partial Class CadUsuario
         Me.Text = "Cadastro de Usuário"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -205,4 +265,9 @@ Partial Class CadUsuario
     Friend WithEvents InícioToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CadastroDeHoráriosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SairToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents cbTipoUsuario As ComboBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Button2 As Button
 End Class
