@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2016 23:16:29 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.agendamento.model.Usuario" table="usuario" catalog="agendamento" optimistic-lock="version">
+        <id name="idUsuario" type="java.lang.Integer">
+            <column name="id_usuario" />
+            <generator class="identity" />
+        </id>
+        <property name="nmUsuario" type="string">
+            <column name="nm_usuario" length="100" not-null="true" />
+        </property>
+        <property name="telUsuario" type="string">
+            <column name="tel_usuario" length="45" not-null="true" />
+        </property>
+        <property name="cpfUsuario" type="string">
+            <column name="cpf_usuario" length="20" not-null="true" />
+        </property>
+        <property name="emailUsuario" type="string">
+            <column name="email_usuario" length="100" not-null="true" />
+        </property>
+        <property name="senhaUsuario" type="string">
+            <column name="senha_usuario" length="100" not-null="true" />
+        </property>
+        <set name="horarios" table="horario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_usuario_agendamento" />
+            </key>
+            <one-to-many class="br.com.agendamento.model.Horario" />
+        </set>
+    </class>
+</hibernate-mapping>
