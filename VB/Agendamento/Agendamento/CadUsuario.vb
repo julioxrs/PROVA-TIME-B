@@ -27,4 +27,8 @@ Public Class CadUsuario
             MsgBox("Erro")
         End Try
     End Sub
+
+    Private Sub CadastroDeHoráriosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CadastroDeHoráriosToolStripMenuItem.Click
+        CadHorarios.Show()
+    End Sub
 End Class
