@@ -14,15 +14,7 @@
 			return $pdo;
 		}
 		
-		/* Função de SELECT genérica
-				$pdo = retorno da conexão feita com o banco de dados acima
-				$dataType = tipo de dado que deverá ser retornado (exemplo: '*')
-				$table = tabela a qual se irá executar o comando SQL
-				$whereStmt = parte do where sem o bindValue (exemplo:  'WHERE id=:id')
-				$whereStmtArray = array responsável pelo bindValue em si. O mesmo deverá ser povoado
-					exemplo:
-						
-		*/
+		/* Função de SELECT genérica*/
 		function getAllDispAvalINNER($pdo,$id_usuario){
 			//echo "SELECT {$dataType} FROM {$table} {$whereStmt}";
 			$resultofQuery = $pdo->prepare("
@@ -45,8 +37,15 @@
 			}
 		}
 		
-		function insertAvalValue($aval_value){
-			
+		function insertAvalValue($pdo, $aval_value, $id_agendamento){
+			$resultofQuery = $pdo->prepare("UPDATE agendamento SET aval_agendamento=:aval WHERE id_agendamento=:agen");
+			$resultofQuery->bindValue(":aval", $aval_value);
+			$resultofQuery->bindValue(":agen", $id_agendamento);
+			if($resultofQuery->execute()){
+				return true;
+			}else{
+				return false;
+			}
 		}
 	}
 ?>
