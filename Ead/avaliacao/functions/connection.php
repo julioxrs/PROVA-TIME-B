@@ -1,8 +1,8 @@
 <?php 
 	class Connection{
-		private $DB_HOST='localhost';
-		private $DB_USER = 'root';
-		private $DB_PASSWORD = '';
+		private $DB_HOST='192.168.1.28';
+		private $DB_USER = 'ceuma';
+		private $DB_PASSWORD = 'ceuma';
 		private $DB_NAME = 'agendamento';
 		
 		function pdoConnect(){
