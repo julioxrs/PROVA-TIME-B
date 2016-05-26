@@ -30,5 +30,10 @@
 			$result = $con->getAllDispAvalINNER($pdo, $this->id_usuario);
 			return $result;
 		}
+		
+		function insertAvalValue($con, $pdo){
+			$result = $con->insertAvalValue($pdo, $this->aval_agendamento, $this->id_agendamento);
+			return $result;
+		}
 	}
 ?>
