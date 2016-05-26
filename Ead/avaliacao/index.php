@@ -1,8 +1,21 @@
-﻿<?php
+<?php
+	if(isset($_GET['msg'])){
+		switch ($_GET['msg']){
+			case 'success':
+				echo "<script>alert('Avaliação inserida com sucesso!');</script>";
+				break;
+			case 'wrong':
+				echo "<script>alert('Em decorrência de algum problema, a avaliação não pôde ser efetuada.');</script>";
+				break;
+			case 'nodata':
+				echo "<script>alert('Não há avaliação para ser enviada, por favor tente novamente.');</script>";
+				break;
+		}
+	}
 	//Incluindo classes
 	include 'functions/agendamento.php';
 	include 'functions/connection.php';
-	include 'functions/horario.php';
+	//include 'functions/horario.php';
 	//VARIAVEIS PARA TESTE
 	$tipo_usuario = '0';
 	$id_usuario = '1';
@@ -33,7 +46,7 @@
 					}
 					$data = $data.'</table>';
 				}else{
-					echo "Não há informações de agendamentos não havaliados.";
+					$data = "Não há agendamentos disponíveis para ser avaliados.";
 				}
 				break;
 			case 1: //Funcionario
