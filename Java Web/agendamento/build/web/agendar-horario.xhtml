@@ -13,39 +13,20 @@
         <!--<h:outputLabel value="Horarios disponíveis: " />-->
         <!--<h2>Horarios disponíveis: </h2>-->
         
-        <p:panelGrid columns="2" >
-            <p:commandButton value="Ver horários disponíveis" action="#{horarioBean.listar()}" update="@form"></p:commandButton>
+        <p:panelGrid columns="3" >
+            <p:commandButton value="Ver horários disponíveis" action="#{sistemaInterno.listaHorarios()}" update="@form"></p:commandButton>
                                     
-            <p:commandButton value="Agendar horário" action="#{agendamentoBean.agendamento()}" update="@form"></p:commandButton> 
+            <p:commandButton value="Agendar horário" action="#{sistemaInterno.realizarAgendamento()}" update="@form"></p:commandButton> 
+            
+            <p:commandButton value="Sair" action="#{sistemaInterno.sair()}" update="@form"></p:commandButton> 
             
         </p:panelGrid>
          
-        <!--
-        <p:dataTable id="horarios" value="{horarioBean.horarios}" 
-                     var="horarioDisp" 
-                     >
-            <p:column headerText="ID">
-                <h:outputText value="{horarioDisp.id}"></h:outputText>
-            </p:column>
-            <p:column headerText="Hora">
                 
-                <h:outputText value="{horarioDisp.hora}">
-                    <f:convertDateTime pattern="hh:mm" />
-                </h:outputText>
-            </p:column>
-            <p:column headerText="Data">
-                <h:outputText value="{horarioDisp.data}">
-                    <f:convertDateTime pattern="dd/MM/yyyy"/>
-                </h:outputText>
-            </p:column>                    
-        </p:dataTable>           
-                   
-        -->
-        
-        <p:dataTable id="tabSeleciona" var="horarioDisp" value="#{horarioBean.horarios}" 
-                     selectionMode="single" selection="#{horarioBean.horarioSelecionado}" 
+        <p:dataTable id="tabSeleciona" var="horarioDisp" value="#{sistemaInterno.horarioBean.horarios}" 
+                     selectionMode="single" selection="#{sistemaInterno.horarioBean.horarioSelecionado}" 
                      rowKey="#{horarioDisp.id}">
-            <!--
+            <!-- 
             <f:facet name="header">
                 Select Events
             </f:facet>
@@ -55,10 +36,9 @@
             <p:column headerText="ID">
                 <h:outputText value="#{horarioDisp.id}"></h:outputText>
             </p:column>
-            <p:column headerText="Hora">
-                
+            <p:column headerText="Hora">                
                 <h:outputText value="#{horarioDisp.hora}">
-                    <f:convertDateTime pattern="hh:mm" />
+                    <f:convertDateTime pattern="HH:mm" timeZone="GMT-03:00" /> 
                 </h:outputText>
             </p:column>
             <p:column headerText="Data">

@@ -5,9 +5,7 @@ import br.ceuma.agendamento.dao.HorarioDAO;
 import br.ceuma.agendamento.modelo.Horario;
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 @SessionScoped
@@ -24,8 +22,8 @@ public class HorarioBean {
      
     //@PostConstruct
     public void listar(){
-        horarios = horarioDAO.buscarDisponiveis();
-        
+        horarios = horarioDAO.buscarDisponiveisAtuais();
+        //horarios = horarioDAO.buscarDisponiveis();
     }
 
     public List<Horario> getHorarios() {
@@ -44,7 +42,7 @@ public class HorarioBean {
         this.horarioDAO = horarioDAO;
     }
 
-    public Horario getHorarioSelecionado() {
+    public Horario getHorarioSelecionado() {        
         return horarioSelecionado;
     }
 

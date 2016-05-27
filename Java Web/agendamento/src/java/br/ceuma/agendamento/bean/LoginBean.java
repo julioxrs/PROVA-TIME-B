@@ -16,13 +16,13 @@ public class LoginBean { //INSERIR GETTERS e SETTERS
     
     public String autenticar(){
         //String redireciona = "/resources/erro/erroUsuario.xhtml";
-        String redireciona = null;
-        
-        
-        
-        if (loginDAO.logar(usuario.getNome(), usuario.getSenha())){
+        String redireciona = null;        
+                
+        if (loginDAO.logarDadosAluno(usuario)){
             System.out.println("Usuario logado!");
             redireciona = "agendar-horario.xhtml";
+            
+            
         } else{
             System.out.println("Usuario nao logou!");
             

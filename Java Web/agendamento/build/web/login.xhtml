@@ -11,13 +11,13 @@
         <p:panelGrid columns="2" layout="tabular">
 
             <h:outputLabel value="Email: "></h:outputLabel>
-            <p:inputText value="#{loginBean.usuario.email}"></p:inputText>
-
+            <p:inputText value="#{sistemaInterno.loginBean.usuario.email}"></p:inputText>
+            
             <h:outputLabel value="Senha: "></h:outputLabel>
-            <p:inputText value="#{loginBean.usuario.senha}"></p:inputText>
-
+            <p:inputText value="#{sistemaInterno.loginBean.usuario.senha}"></p:inputText>
+            
             <h:outputText></h:outputText>
-            <p:commandButton value="Entrar" ajax="false" action="#{loginBean.autenticar()}" ></p:commandButton>
+            <p:commandButton value="Entrar" ajax="false" action="#{sistemaInterno.logar()}" ></p:commandButton>
                         
         </p:panelGrid>
                 

@@ -4,6 +4,7 @@ import br.ceuma.agendamento.dao.HorarioDAO;
 import br.ceuma.agendamento.dao.UsuarioDAO;
 import br.ceuma.agendamento.modelo.Horario;
 import br.ceuma.agendamento.modelo.Usuario;
+import br.ceuma.agendamento.util.DataHoraUtil;
 import java.sql.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -119,9 +120,21 @@ public class Teste {
 */
     }
 
+    private static void horaAtual() {
+        //Date hora = new SimpleDateFormat("kk:mm:ss");//new Date(Calendar.getInstance().getTimeInMillis());
+        Date data = new Date(Calendar.getInstance().getTimeInMillis());
+        
+        DataHoraUtil d = new DataHoraUtil();
+        
+        //System.out.println("Hora atual: "+hora.getTime());
+        System.out.println("Data atual: "+d.dataAtualBD());
+        
+    }
 
     public static void main(String[] args) {
-        listaHorario();
+        horaAtual();
 
     }
+
+    
 }

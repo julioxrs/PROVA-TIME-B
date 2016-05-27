@@ -2,7 +2,6 @@
 package br.ceuma.agendamento.bean;
 
 import br.ceuma.agendamento.dao.AgendamentoDAO;
-import br.ceuma.agendamento.modelo.Agendamento;
 import br.ceuma.agendamento.modelo.Horario;
 import br.ceuma.agendamento.modelo.Usuario;
 import javax.faces.bean.ManagedBean;
@@ -12,7 +11,6 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 public class AgendamentoBean {  //INSERIR GETTERS e SETTERS
     
-    private Agendamento agenda = new Agendamento();
     private AgendamentoDAO agendaDAO = new AgendamentoDAO();
     
     private Usuario usuario = new Usuario();

@@ -23,19 +23,33 @@ public class AgendamentoDAO {
         
         conexao = new ConexaoFactory().getConexao();
         
-        String sql = "UPDATE `horario` " + 
-                "SET `id_usuario_agendamento`=? " +
-                "WHERE `id_horario`=?";
+        String sql = "INSERT INTO `agendamento` " + 
+                "(`id_horario`,`id_usuario`) " +
+                "VALUES (?,?)";
                 
+        String sql_horario = "UPDATE `horario` " + 
+                "SET `disp_horario`=1 " +
+                "WHERE `id_horario`=?";
+        
         try{
+            // atualização da tabela agendamento
             PreparedStatement stmt = this.conexao.prepareStatement(sql);
             
-            stmt.setInt(1, agendamento.getUsuario().getId());
-            stmt.setInt(2, agendamento.getHorario().getId());
-            
-            
+            stmt.setInt(1, agendamento.getHorario().getId());
+            stmt.setInt(2, agendamento.getUsuario().getId());
+                        
             stmt.execute();
             stmt.close();
+            
+            // atualização da tabela horario
+            PreparedStatement stmt_horario = this.conexao.prepareStatement(sql_horario);
+            
+            stmt_horario.setInt(1, agendamento.getHorario().getId());
+                        
+            stmt_horario.execute();
+            stmt_horario.close();
+            
+            
             new ConexaoFactory().fechaConexao(conexao);
             
             agendado = true;
@@ -50,23 +64,36 @@ public class AgendamentoDAO {
     
     public boolean agendar(Usuario usuario, Horario horario){
         
-        boolean agendado = false;
+        boolean agendado = false;        
         
         conexao = new ConexaoFactory().getConexao();
         
-        String sql = "UPDATE `horario` " + 
-                "SET `id_usuario_agendamento`=? " +
+        String sql = "INSERT INTO `agendamento` " + 
+                "(`id_horario`,`id_usuario`) " +
+                "VALUES (?,?)";
+        
+        String sql_horario = "UPDATE `horario` " + 
+                "SET `disp_horario`=1 " +
                 "WHERE `id_horario`=?";
                 
         try{
+            // atualização da tabela agendamento
             PreparedStatement stmt = this.conexao.prepareStatement(sql);
             
-            stmt.setInt(1, usuario.getId());
-            stmt.setInt(2, horario.getId());
-            
-            
+            stmt.setInt(1, horario.getId());
+            stmt.setInt(2, usuario.getId());
+                        
             stmt.execute();
             stmt.close();
+            
+            // atualização da tabela horario
+            PreparedStatement stmt_horario = this.conexao.prepareStatement(sql_horario);
+            
+            stmt_horario.setInt(1, horario.getId());
+                        
+            stmt_horario.execute();
+            stmt_horario.close();
+            
             new ConexaoFactory().fechaConexao(conexao);
             
             agendado = true;

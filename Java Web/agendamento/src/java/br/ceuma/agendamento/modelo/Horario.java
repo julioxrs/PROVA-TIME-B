@@ -12,8 +12,7 @@ public class Horario {
     // var disponivel é tipo int, pois este campo no banco não assumi valor nulo
     // e tem como valor padrão o numero 0
     private int disponivel; 
-    
-    
+        
 
     public Integer getId() {
         return id;
