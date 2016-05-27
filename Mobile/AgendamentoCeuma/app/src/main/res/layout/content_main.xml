@@ -27,8 +27,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText_CPD"
-        android:hint="CPD"
+        android:id="@+id/editText_Email"
+        android:hint="Email"
         android:gravity="center"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
@@ -47,7 +47,7 @@
         android:hint="Senha"
         android:gravity="center"
         android:alpha="1"
-        android:layout_below="@+id/editText_CPD"
+        android:layout_below="@+id/editText_Email"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
