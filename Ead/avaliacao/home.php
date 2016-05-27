@@ -20,9 +20,9 @@ session_start();
 	//VARIAVEIS PARA TESTE
 	//$tipo_usuario = $_SESSION['permissao'];
 	//$id_usuario = $_SESSION['idusuario'];
-	if((isset($_GET['tipo_usuario']))&&(isset($_GET['id_usuario']))){
-		$tipo_usuario = $_GET['tipo_usuario'];
-		$id_usuario = $_GET['id_usuario'];
+	if((isset($_SESSION['tipo_usuario']))&&(isset($_SESSION['id_usuario']))&&(isset($_SESSION['nome_usuario']))){
+		$tipo_usuario = $_SESSION['tipo_usuario'];
+		$id_usuario = $_SESSION['id_usuario'];
 		$con = new Connection();
 		$pdo = $con->pdoConnect(); //Cria conexão com o banco de dados
 		$agendamento = new Agendamento();

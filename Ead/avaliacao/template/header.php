@@ -34,10 +34,10 @@
                     ?>
                     <ul class="nav navbar-nav navbar-right navbar-user">
                         <li class="dropdown user-dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $_GET['nome_usuario'];?> <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $_SESSION['nome_usuario'];?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li class="divider"></li>
-                                <li><a href=""><i class="fa fa-power-off"></i> Log Out</a></li>
+                                <li><a href="../FrenteEad/index.php"><i class="fa fa-power-off"></i> Log Out</a></li>
                             </ul>
                         </li>
                     </ul>
