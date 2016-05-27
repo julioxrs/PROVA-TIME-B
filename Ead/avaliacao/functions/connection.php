@@ -1,8 +1,8 @@
 <?php 
 	class Connection{
-		private $DB_HOST='192.168.1.28';
-		private $DB_USER = 'ceuma';
-		private $DB_PASSWORD = 'ceuma';
+		private $DB_HOST='localhost';
+		private $DB_USER = 'root';
+		private $DB_PASSWORD = '';
 		private $DB_NAME = 'agendamento';
 		
 		function pdoConnect(){
@@ -23,6 +23,22 @@
 			WHERE aval_agendamento=0 AND id_usuario=:user ORDER BY id_agendamento DESC
 			;");
 			$resultofQuery->bindValue(':user', $id_usuario);
+			$resultofQuery->execute();
+			if($resultofQuery->rowCount()>=1){
+				$count = 0;
+				$return = array();
+				while($row = $resultofQuery->fetch(PDO::FETCH_OBJ)){
+					$return[$count] = $row;
+					$count++;
+				}
+				return $return;
+			}else{
+				return false;
+			}
+		}
+		
+		function getAllAgendamentos($pdo){
+			$resultofQuery = $pdo->prepare("SELECT * FROM agendamento");
 			$resultofQuery->execute();
 			if($resultofQuery->rowCount()>=1){
 				$count = 0;

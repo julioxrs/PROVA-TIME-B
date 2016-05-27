@@ -31,6 +31,33 @@
 			return $result;
 		}
 		
+		function getAllAgendamentosData($con, $pdo){
+			$result = $con->getAllAgendamentos($pdo);
+			if($result!=false){
+				//Criando o vetor para retorná-lo
+				$totalAval=0;
+				$totalAvalSum = 0;
+				$total = count($result);
+				for($i=0;$i<$total;$i++){
+					if($result[$i]->aval_agendamento>0){
+						$totalAvalSum += $result[$i]->aval_agendamento;
+						$totalAval++;
+					}
+				}
+				$media = $totalAvalSum/$totalAval;
+				$noAval = $total-$totalAval;
+				$data = array(
+					'total'=>$total,
+					'totalAval'=>$totalAval,
+					'media'=>$media,
+					'noAval'=>$noAval
+				);
+				return $data;
+			}else{
+				return $result;
+			}
+		}
+		
 		function insertAvalValue($con, $pdo){
 			$result = $con->insertAvalValue($pdo, $this->aval_agendamento, $this->id_agendamento);
 			return $result;

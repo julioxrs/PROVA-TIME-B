@@ -64,7 +64,14 @@ session_start();
 				}
 				break;
 			case 1: //Funcionario
-				$data = "funcionario";
+				$result = $agendamento->getAllAgendamentosData($con, $pdo); //Retorna os dados referentes À avaliação
+				$data = "<strong>Relatório simplificado de avaliações.</strong>
+				<br><br>
+				Número total de agendamentos: <strong>{$result['total']}</strong>.<br>
+				Número total de agendamentos avaliados: <strong>{$result['totalAval']}</strong>.<br>
+				Número total de agendamentos não avaliados: <strong>{$result['noAval']}</strong>.<br>
+				Média das avaliações: <strong>{$result['media']}</strong>.
+				";
 				break;
 			default:
 				//header("Location");
