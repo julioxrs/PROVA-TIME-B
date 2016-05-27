@@ -23,72 +23,94 @@ Partial Class CadHorarios
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CadHorarios))
-        Me.dtpData = New System.Windows.Forms.DateTimePicker()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.txtHora = New System.Windows.Forms.MaskedTextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtHora = New System.Windows.Forms.MaskedTextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.dtpData = New System.Windows.Forms.DateTimePicker()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'dtpData
-        '
-        Me.dtpData.Location = New System.Drawing.Point(80, 70)
-        Me.dtpData.Name = "dtpData"
-        Me.dtpData.Size = New System.Drawing.Size(336, 26)
-        Me.dtpData.TabIndex = 31
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(30, 118)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(162, 57)
-        Me.Button1.TabIndex = 32
-        Me.Button1.Text = "Cadastrar Horário"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'txtHora
-        '
-        Me.txtHora.Location = New System.Drawing.Point(80, 33)
-        Me.txtHora.Mask = "90:00:00"
-        Me.txtHora.Name = "txtHora"
-        Me.txtHora.Size = New System.Drawing.Size(100, 26)
-        Me.txtHora.TabIndex = 33
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(26, 36)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(48, 20)
-        Me.Label1.TabIndex = 34
-        Me.Label1.Text = "Hora:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(26, 75)
+        Me.Label2.Location = New System.Drawing.Point(32, 72)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(48, 20)
-        Me.Label2.TabIndex = 35
+        Me.Label2.TabIndex = 40
         Me.Label2.Text = "Data:"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(32, 33)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(48, 20)
+        Me.Label1.TabIndex = 39
+        Me.Label1.Text = "Hora:"
+        '
+        'txtHora
+        '
+        Me.txtHora.Location = New System.Drawing.Point(86, 30)
+        Me.txtHora.Mask = "90:00:00"
+        Me.txtHora.Name = "txtHora"
+        Me.txtHora.Size = New System.Drawing.Size(100, 26)
+        Me.txtHora.TabIndex = 38
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(36, 115)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(162, 57)
+        Me.Button1.TabIndex = 37
+        Me.Button1.Text = "Cadastrar Horário"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'dtpData
+        '
+        Me.dtpData.Location = New System.Drawing.Point(86, 67)
+        Me.dtpData.Name = "dtpData"
+        Me.dtpData.Size = New System.Drawing.Size(336, 26)
+        Me.dtpData.TabIndex = 36
         '
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(457, 33)
+        Me.PictureBox1.Location = New System.Drawing.Point(442, 33)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(169, 171)
+        Me.PictureBox1.Size = New System.Drawing.Size(409, 242)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 36
+        Me.PictureBox1.TabIndex = 41
         Me.PictureBox1.TabStop = False
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(214, 115)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(162, 57)
+        Me.Button2.TabIndex = 42
+        Me.Button2.Text = "Limpar Campos"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(36, 188)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(162, 57)
+        Me.Button3.TabIndex = 43
+        Me.Button3.Text = "Sair"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'CadHorarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(655, 270)
+        Me.ClientSize = New System.Drawing.Size(874, 306)
+        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -104,10 +126,13 @@ Partial Class CadHorarios
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents dtpData As DateTimePicker
-    Friend WithEvents Button1 As Button
-    Friend WithEvents txtHora As MaskedTextBox
-    Friend WithEvents Label1 As Label
+
     Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtHora As MaskedTextBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents dtpData As DateTimePicker
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
 End Class

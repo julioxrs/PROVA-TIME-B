@@ -22,70 +22,84 @@ Partial Class Login
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.txtEmail = New System.Windows.Forms.Label()
-        Me.txtloginEmail = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtLoginSenha = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Login))
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.txtLoginSenha = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtloginEmail = New System.Windows.Forms.TextBox()
+        Me.txtEmail = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'txtEmail
+        'Button2
         '
-        Me.txtEmail.AutoSize = True
-        Me.txtEmail.Location = New System.Drawing.Point(31, 46)
-        Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(57, 20)
-        Me.txtEmail.TabIndex = 0
-        Me.txtEmail.Text = "E-mail:"
+        Me.Button2.Location = New System.Drawing.Point(181, 150)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(183, 49)
+        Me.Button2.TabIndex = 11
+        Me.Button2.Text = "Limpar Campos"
+        Me.Button2.UseVisualStyleBackColor = True
         '
-        'txtloginEmail
+        'Button1
         '
-        Me.txtloginEmail.Location = New System.Drawing.Point(108, 43)
-        Me.txtloginEmail.Name = "txtloginEmail"
-        Me.txtloginEmail.Size = New System.Drawing.Size(316, 26)
-        Me.txtloginEmail.TabIndex = 1
+        Me.Button1.Location = New System.Drawing.Point(37, 150)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(121, 49)
+        Me.Button1.TabIndex = 10
+        Me.Button1.Text = "Logar"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'txtLoginSenha
+        '
+        Me.txtLoginSenha.Location = New System.Drawing.Point(110, 89)
+        Me.txtLoginSenha.Name = "txtLoginSenha"
+        Me.txtLoginSenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtLoginSenha.Size = New System.Drawing.Size(316, 26)
+        Me.txtLoginSenha.TabIndex = 9
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(31, 92)
+        Me.Label1.Location = New System.Drawing.Point(33, 89)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(60, 20)
-        Me.Label1.TabIndex = 2
+        Me.Label1.TabIndex = 8
         Me.Label1.Text = "Senha:"
         '
-        'txtLoginSenha
+        'txtloginEmail
         '
-        Me.txtLoginSenha.Location = New System.Drawing.Point(108, 92)
-        Me.txtLoginSenha.Name = "txtLoginSenha"
-        Me.txtLoginSenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtLoginSenha.Size = New System.Drawing.Size(316, 26)
-        Me.txtLoginSenha.TabIndex = 3
+        Me.txtloginEmail.Location = New System.Drawing.Point(110, 40)
+        Me.txtloginEmail.Name = "txtloginEmail"
+        Me.txtloginEmail.Size = New System.Drawing.Size(316, 26)
+        Me.txtloginEmail.TabIndex = 7
         '
-        'Button1
+        'txtEmail
         '
-        Me.Button1.Location = New System.Drawing.Point(35, 153)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(121, 49)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Logar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.txtEmail.AutoSize = True
+        Me.txtEmail.Location = New System.Drawing.Point(33, 43)
+        Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.Size = New System.Drawing.Size(57, 20)
+        Me.txtEmail.TabIndex = 6
+        Me.txtEmail.Text = "E-mail:"
         '
-        'Button2
+        'PictureBox1
         '
-        Me.Button2.Location = New System.Drawing.Point(179, 153)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(183, 49)
-        Me.Button2.TabIndex = 5
-        Me.Button2.Text = "Limpar Campos"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(450, 40)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(262, 147)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 27
+        Me.PictureBox1.TabStop = False
         '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(468, 244)
+        Me.ClientSize = New System.Drawing.Size(748, 245)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtLoginSenha)
@@ -96,15 +110,17 @@ Partial Class Login
         Me.Name = "Login"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Login"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents txtEmail As Label
-    Friend WithEvents txtloginEmail As TextBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents txtLoginSenha As TextBox
-    Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents txtLoginSenha As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtloginEmail As TextBox
+    Friend WithEvents txtEmail As Label
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
