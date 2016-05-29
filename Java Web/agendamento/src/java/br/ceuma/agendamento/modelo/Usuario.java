@@ -13,6 +13,7 @@ public class Usuario {
     private String email;
     private String senha;
     private int tipoUsuario;
+    private int avaliouEAD;
         
     public Integer getId() {
         return id;
@@ -70,6 +71,16 @@ public class Usuario {
         this.tipoUsuario = tipoUsuario;
     }
 
+    public int getAvaliouEAD() {
+        return avaliouEAD;
+    }
+
+    public void setAvaliouEAD(int avaliouEAD) {
+        this.avaliouEAD = avaliouEAD;
+    }
+
+    
+    
     //Utilizados para comparar objetos diferentes, baseado no id
     // hashCode para campo 'id'
     @Override

@@ -18,16 +18,13 @@ public class UsuarioBean {
     private UsuarioDAO usuarioDAO = new UsuarioDAO();
     
     public void adicionarBD(){
-        usuarioDAO.inserir(usuario);
-        //System.out.println("Dados Gravados!");        
+        usuarioDAO.inserir(usuario); // grava dados de usuario no banco de dados (utilizado para testes)   
     }
     
     public void listar(){
         usuarios = usuarioDAO.buscar();        
-    }
-    
-    
-    
+    }       
+         
     public Usuario getUsuario() {
         return usuario;
     }

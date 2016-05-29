@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"          
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Sistema de Agendamento</title>
+
+        <link rel="stylesheet" type="text/css" href="css/eshop.css" media="all" />
+
+    </h:head>
+    <h:body>
+
+
+        <h:form id="bemvindo">
+            <h:outputText value="Bem vindo, #{loginBean.usuarioLogado.nome}!" ></h:outputText>
+        </h:form>
+        
+        <h:form id="formBotao2" styleClass="sairForm"> 
+            <p:commandLink action="#{loginBean.sair()}" ajax="false" >
+                <p:graphicImage  value="/images/sair.png" width="30px" />
+            </p:commandLink>            
+        </h:form>
+
+        <h:form>
+            <h1>
+                <p:graphicImage value="images/grupoceuma.jpg" library="images"/>
+            </h1>
+        </h:form>
+
+
+        <h1>Sistema de Agendamento</h1>
+
+        <h2>Selecione um dos horários disponíveis:</h2>
+
+
+        <div class="container">
+
+            <div class="main-bar">
+                <div class="product">
+                    <h3>Hora</h3>
+                </div>
+                <div class="quantity">
+                    <h3>Data</h3>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+            <h:form id="formHorarios">
+                
+                <p:growl id="msgs" showDetail="true" life="1200" />
+                <div class="items">
+
+                    <!--
+                    <p:dataTable id="tabSeleciona" var="horarioDisp" value="{horarioBean.horarios}" 
+                                 selectionMode="single" selection="{horarioBean.horarioSelecionado}" 
+                                 rowKey="{horarioDisp.id}" 
+                                 scrollRows="15" scrollable="true" liveScroll="true" style="margin-bottom:0">
+
+                        -->
+                        <p:dataTable id="tabSeleciona" var="horarioDisp" value="#{horarioBean.horarioDados}" 
+                                 selectionMode="single" selection="#{horarioBean.horarioSelecionado}"                                  
+                                 scrollRows="15" scrollable="true" liveScroll="true" >
+
+                        <p:ajax event="rowSelect" listener="#{horarioBean.onRowSelect}" update=":formHorarios:msgs" />
+
+                        <p:column style="text-align: center" filterBy="#{horarioDisp.hora}"
+                                  filterMatchMode="contains">                
+                            <h:outputText value="#{horarioDisp.hora}">
+                                <f:convertDateTime pattern="HH:mm" timeZone="GMT-03:00" /> 
+                            </h:outputText>
+                        </p:column>
+                        
+                        <p:column style="text-align: center" filterBy="#{horarioDisp.data}"
+                                  filterMatchMode="contains" sortable="true">
+                            <h:outputText value="#{horarioDisp.data}">
+                                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                            </h:outputText>
+                        </p:column>      
+                        
+                    </p:dataTable>
+
+                </div>
+            </h:form>
+
+            <div class="total">
+
+            </div>
+
+            <h:form id="formBotoes" styleClass="checkout">
+
+                <p:commandButton styleClass="agendar-btn" ajax="true" value="Agendar atendimento" 
+                                 action="#{agendamentoBean.agendar()}" update=":formHorarios:tabSeleciona"
+                                 title="Agendar horário de atendimento"></p:commandButton> 
+            </h:form>
+
+        </div>
+
+        <!-- Copyright-Starts-Here -->
+        <div class="copyright">
+            <p>&copy; 2016 E Shop Cart. All Rights Reserved | Template by <a href="http://w3layouts.com/"> W3layouts </a></p>
+        </div>
+
+
+    </h:body>
+
+</html>
+

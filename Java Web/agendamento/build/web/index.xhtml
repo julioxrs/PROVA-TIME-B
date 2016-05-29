@@ -1,17 +1,89 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-             xmlns:h="http://xmlns.jcp.org/jsf/html"
-             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-             template="templates/template.xhtml"
-             xmlns:p="http://primefaces.org/ui">
-    
-    
-    
-    <ui:include src="login.xhtml"/>
-        
-        
-    
-    
-</html>
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
+    <h:head>
+        <title>Sistema de Agendamento</title>
+
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+
+    </h:head>
+    <h:body>
+
+
+        <div class="login-form">
+            <div class="top-login">
+                <span><img src="images/ceuma_logo.jpg" alt=""/></span>
+            </div>
+            <h1 style="color: #000">Sistema de agendamento</h1>
+            <div class="login-top">
+
+
+                <h:form id="formHorarios">                         
+                    <p:dialog header="Falha no login" widgetVar="dlg" modal="true" height="50">
+                        <h:outputText value="Usuário/senha inválido ou inexistente!" />
+                    </p:dialog>
+
+                    <div class="login-ic">
+                        <i ></i>
+                        <p:inputText id="email" 
+                                     required="true" 
+                                     value="#{loginBean.usuario.email}" 
+                                     placeholder="E-mail"/>
+                        <div class="clear"> </div>
+                    </div>
+
+                    <div class="login-ic">
+                        <i class="icon"></i>
+                        <p:password id="keyword" style="login-ic" 
+                                    value="#{loginBean.usuario.senha}" 
+                                    required="true" 
+                                    placeholder="Senha"/>
+                        <div class="clear"> </div>
+                    </div>
+
+                    <div class="log-bwn">
+                        <p:commandButton styleClass="log-bwn1" value="Entrar" 
+                                         ajax="true"  
+                                         update=":formHorarios" 
+                                         action="#{loginBean.autenticar}"
+                                         oncomplete="handleLoginRequest(xhr, status, args)"></p:commandButton>
+                    </div>
+
+                    <div class="txt-rt">
+                        <p:commandLink id="enviarEmail" onclick="PF('dlgEmail').show();" >
+                            <h:outputText value="Esqueceu a senha?" styleClass="alignright" />
+                        </p:commandLink>
+                    </div>
+                </h:form>
+
+
+                <!-- permite apresentar na tela a mensagem quando o usuario for invalido -->
+                <script type="text/javascript">
+                    function handleLoginRequest(xhr, status, args) {
+                        if (args.validationFailed || !args.loggedIn) {
+                            PF('dlg').jq.effect("shake", {times: 5}, 100);
+                        } else {
+                            PF('dlg').hide();
+                            $('#loginLink').fadeOut();
+                        }
+                    }
+                </script>
+
+                
+                <h:form id="esqueceSenha">
+                    <p:dialog header="Insira seu email e clique em enviar" widgetVar="dlgEmail" modal="true" height="100">
+                        <p:inputText id="inputEmail" widgetVar="txtEmail" />
+                        <p:commandButton value="Enviar" />
+                    </p:dialog> 
+                </h:form>
+
+            </div>
+            <p class="copy">© 2016 Square Login Form. All rights reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p> 
+
+        </div>		
+    </h:body>
+</html>

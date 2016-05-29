@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 
 
-public class ConexaoFactory {
+public class ConexaoFactory { //192.168.0.100
     private final String URL = "jdbc:mysql://localhost/agendamento";
     private final String USUARIO = "ceuma";
     private final String SENHA = "1234";

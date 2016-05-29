@@ -32,7 +32,7 @@ public class AgendamentoDAO {
                 "WHERE `id_horario`=?";
         
         try{
-            // atualização da tabela agendamento
+            // inserção na tabela agendamento
             PreparedStatement stmt = this.conexao.prepareStatement(sql);
             
             stmt.setInt(1, agendamento.getHorario().getId());
@@ -77,7 +77,7 @@ public class AgendamentoDAO {
                 "WHERE `id_horario`=?";
                 
         try{
-            // atualização da tabela agendamento
+            // inserção na tabela agendamento
             PreparedStatement stmt = this.conexao.prepareStatement(sql);
             
             stmt.setInt(1, horario.getId());
@@ -106,7 +106,7 @@ public class AgendamentoDAO {
         
     }    
     
-    
+    // utilizado para manutenção e testes
     public void inserir(Agendamento agendamento){
         conexao = new ConexaoFactory().getConexao();
         
@@ -131,6 +131,7 @@ public class AgendamentoDAO {
         
     }
     
+    // utilizado para buscar todos os agendamentos e id's associados ( para futuras implementações)
     public List<Agendamento> buscar(){
         conexao = new ConexaoFactory().getConexao();
         List<Agendamento> agendamentos = null;
