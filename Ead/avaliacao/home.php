@@ -81,14 +81,19 @@ session_start();
 		$data = "Não há sessão criada";
 	}
 include('template/header.php');?>
-	<div id="espaco-pos-pesquisa"></div>
+	<!--<div id="espaco-pos-pesquisa"></div>-->
+	<div style="height:55px;;"></div>
 	<div id="page-wrapper">
-		<div class="alert alert-danger alert-dismissable">
-			<?php echo $data; ?>
-		</div>
-
-
+		<div class="alert alert-info alert-dismissable">
+			<?php 
+			if($_SESSION['tipo_usuario']==0){
+				echo "<div align='center'>Bom dia, {$_SESSION['nome_usuario']}! Gostaríamos da sua avaliação dos agendamentos. <br>A nota a ser dada varia de 1 a 5, sendo 1 a menor nota, e 5 a maior nota. <br><strong>Muito obrigado!</strong></div><br>"; 
+			}else{
+				echo "<div align='center'>Bom dia, {$_SESSION['nome_usuario']}! Abaixo os dados resumidos das avaliações dos agendamentos. <br> Muito obrigado!<br>";
+			}
+			?></div>
 	</div> <!-- /PAINEL-GROUP -->
+	<div class="col-md-12"><?php echo $data; ?></div>
 <!-- /#page-wrapper -->
 <?php
 	include('template/footer.php');

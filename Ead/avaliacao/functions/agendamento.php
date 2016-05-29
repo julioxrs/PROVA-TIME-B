@@ -44,7 +44,11 @@
 						$totalAval++;
 					}
 				}
-				$media = $totalAvalSum/$totalAval;
+				if($totalAval==0){
+					$media = 0;
+				}else{
+					$media = $totalAvalSum/$totalAval;
+				}
 				$noAval = $total-$totalAval;
 				$data = array(
 					'total'=>$total,
