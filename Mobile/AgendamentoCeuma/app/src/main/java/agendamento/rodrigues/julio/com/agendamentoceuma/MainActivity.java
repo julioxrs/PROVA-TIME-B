@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
 
        HttpClient httpClient = new DefaultHttpClient();
-        HttpPost httpPost = new HttpPost("http://192.168.1.28/ConsutasAgendamentoCeuma/Login.php");
+        HttpPost httpPost = new HttpPost("http://192.168.0.10/ConsutasAgendamentoCeuma/Login.php");
         String answer = "";
 
         try {
@@ -141,9 +141,9 @@ public class MainActivity extends AppCompatActivity {
         logo.animate().translationX(0f).setDuration(2000);
 
 
-            campoEmail.animate().translationX(0f).setDuration(2000);
-            campoSenha.animate().translationX(0f).setDuration(2000);
-            botaoLogin.animate().translationX(0f).setDuration(2000);
+            campoEmail.animate().translationX(0f).setDuration(1000);
+            campoSenha.animate().translationX(0f).setDuration(1000);
+            botaoLogin.animate().translationX(0f).setDuration(1000);
 
 
 

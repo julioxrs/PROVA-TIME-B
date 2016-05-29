@@ -26,7 +26,7 @@ public class IdUsuario {
         try {
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(
-                    "http://192.168.1.28/ConsutasAgendamentoCeuma/obterUserId.php?email="
+                    "http://192.168.0.10/ConsutasAgendamentoCeuma/obterUserId.php?email="
                             +java.net.URLEncoder.encode(email, "UTF-8"));
             HttpResponse response = httpClient.execute(httpPost);
             HttpEntity entity = response.getEntity();

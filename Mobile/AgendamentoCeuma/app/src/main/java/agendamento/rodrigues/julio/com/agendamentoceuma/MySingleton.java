@@ -5,11 +5,15 @@ package agendamento.rodrigues.julio.com.agendamentoceuma;
  */
 public class MySingleton {
     private String userId;
+    private String nome;
+    private String cpf;
 
     private static MySingleton instance;
 
     private MySingleton() {
         userId = "";
+        nome = "";
+        cpf = "";
     }
 
     public static MySingleton getInstance() {
@@ -25,6 +29,22 @@ public class MySingleton {
 
     public void setUserId(String i) {
         this.userId = i;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String i) {
+        this.nome = i;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String i) {
+        this.cpf = i;
     }
 
 }
