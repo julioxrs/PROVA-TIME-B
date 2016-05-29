@@ -25,6 +25,7 @@ Public Class CadHorarios
             objcmd.Dispose()
             MsgBox("Cadastro efetuado com sucesso!", MsgBoxStyle.Information)
             txtHora.Text = ""
+            carregarLista()
         Catch ex As Exception
             MsgBox("Erro")
         End Try
@@ -36,5 +37,30 @@ Public Class CadHorarios
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Application.Exit()
+    End Sub
+
+    Private Sub CadHorarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        carregarLista()
+    End Sub
+
+    Public Sub carregarLista()
+        objconn = New MySqlConnection
+        objconn.ConnectionString = "server='localhost';user='root';password='MySQL';database='agendamento';"
+
+        Dim stm As String = "SELECT * FROM horario ORDER BY id_horario"
+
+        Try
+
+            Dim cmd As MySqlCommand = New MySqlCommand(stm, objconn)
+            Dim adpter As MySqlDataAdapter = New MySqlDataAdapter(cmd)
+
+            Dim datatable As DataTable = New DataTable
+            adpter.Fill(datatable)
+            DataGridView1.DataSource = datatable
+
+
+        Catch ex As MySqlException
+
+        End Try
     End Sub
 End Class
