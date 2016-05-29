@@ -9,7 +9,7 @@
 	$id_usuario = $_GET['id_usuario'];
 	
 	$conn->query("SET NAMES 'utf8'");
-    $data = $conn->query("select a.id_agendamento, u.nm_usuario, h.hora_horario, h.data_horario
+    $data = $conn->query("select a.id_agendamento, u.nm_usuario,u.cpf_usuario, h.hora_horario, date_format(h.data_horario,'%d/%m/%Y') data_horario
 							from agendamento a, usuario u, horario h
 							where a.id_usuario = u.id_usuario
 							and a.id_horario = h.id_horario
