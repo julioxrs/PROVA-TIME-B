@@ -63,5 +63,26 @@
 				return false;
 			}
 		}
+		
+		function getUserData($pdo, $email){
+			$resultofQuery = $pdo->prepare("
+			SELECT * FROM usuario 
+			INNER JOIN agendamento ON usuario.id_usuario = agendamento.id_usuario
+			WHERE usuario.email_usuario=:email;
+			");
+			$resultofQuery->bindValue(":email", $email);
+			$resultofQuery->execute();
+			if($resultofQuery->rowCount()>=1){
+				$count = 0;
+				$return = array();
+				while($row = $resultofQuery->fetch(PDO::FETCH_OBJ)){
+					$return[$count] = $row;
+					$count++;
+				}
+				return $return;
+			}else{
+				return false;
+			}
+		}
 	}
 ?>

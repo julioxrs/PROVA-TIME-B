@@ -16,6 +16,7 @@ session_start();
 	//Incluindo classes
 	include 'functions/agendamento.php';
 	include 'functions/connection.php';
+	include 'functions/usuario.php';
 	//include 'functions/horario.php';
 	//VARIAVEIS PARA TESTE
 	//$tipo_usuario = $_SESSION['permissao'];
@@ -72,6 +73,68 @@ session_start();
 				Número total de agendamentos não avaliados: <strong>{$result['noAval']}</strong>.<br>
 				Média das avaliações: <strong>{$result['media']}</strong>.
 				";
+				
+				if((isset($_POST['email']))&&(isset($_POST['Enviar']))){
+					$user = new Usuario();
+					$return = $user->getUserData($con, $pdo, $_POST['email']);
+					if($return!=false){
+						$totalAval = 0;
+						$count = 0;
+						for($i=0; $i<count($return); $i++){
+							//Fazendo os cálculos para retornar na tabela
+							if($return[$i]->aval_agendamento>0){
+								$totalAval+=$return[$i]->aval_agendamento;
+								$count++;
+							}
+						}
+						$mediaAval = $totalAval/$count;
+						if($return[0]->avaliou_ead_usuario==1){
+							$aval_guia = "Sim";
+						}else{
+							$aval_guia = "Não";
+						}
+						if($mediaAval<3){
+							$result_type = "Chato";
+						}elseif(($mediaAval>=3)&&($mediaAval<4)){
+							$result_type = "Normal";
+						}else{
+							$result_type = "Tranquilo";
+						}
+						if($totalAval>0){
+							$data = $data."<br><br><br><div class='table-responsive text-center'>
+									<table class='table table-striped'>
+										<thead>
+											<th class='text-center'>Nome do aluno</th>
+											<th class='text-center'>Média de avaliação dos agendamentos</th>
+											<th class='text-center'>Avaliação do guia</th>
+											<th class='text-center'>Resultado</th>
+										</thead>
+										<tbody>
+											<tr>
+												<td>{$return[0]->nm_usuario}</td>
+												<td>{$mediaAval}</td>
+												<td>{$aval_guia}</td>
+												<td>{$result_type}</td>
+											</tr>
+										</tbody></table><br>
+										<a href='home.php'>Voltar</a>";
+						}else{
+							$data = $data."<br><br><br>Ainda não há avaliações do aluno <br><br><a href='home.php'>Voltar</a>";
+						}
+					}else{
+						$data = $data."<br><br><br>Ainda não há avaliações do aluno <br><br><a href='home.php'>Voltar</a>";
+					}
+				}else{
+				$data = $data."<br><br>
+				<div class='alert alert-info alert-dismissable'>
+					<div align='center'>Saiba qual a avaliação de determinado aluno aqui.<br><br>
+					<form action='home.php' method='post'>
+						Digite o e-mail do aluno: 
+						<input type='text' name='email'>
+						<input type='submit' value='Enviar' name='Enviar'>
+				</form></div> 
+				";
+				}
 				break;
 			default:
 				//header("Location");
