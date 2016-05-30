@@ -41,6 +41,7 @@ public class MeuAdaptadorCustom extends ArrayAdapter {
             treinador.textoHora = (TextView) linha.findViewById(R.id.hora);
             treinador.textoData = (TextView) linha.findViewById(R.id.data);
             linha.setTag(treinador);
+
         }else{
             treinador = (DataHandler) linha.getTag();
 
@@ -51,6 +52,9 @@ public class MeuAdaptadorCustom extends ArrayAdapter {
         treinador.textoAgendamento.setText(fornecedor.getAgenda());
         treinador.textoHora.setText(fornecedor.getHora());
         treinador.textoData.setText(fornecedor.getData());
+
+        /*linha.setTranslationX(-1000);
+        linha.animate().translationX(0f).setDuration(1000);*/
 
         return linha;
 

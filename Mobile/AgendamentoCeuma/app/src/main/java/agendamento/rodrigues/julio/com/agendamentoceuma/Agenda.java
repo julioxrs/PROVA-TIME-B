@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,12 +27,12 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Agenda extends AppCompatActivity {
 
+    ImageView imagem;
     ListView listView;
     TextView info_usuario,lblCPF;
     Button button;
@@ -45,20 +48,40 @@ public class Agenda extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
         info_usuario = (TextView) findViewById(R.id.info_usuario);
         lblCPF = (TextView) findViewById(R.id.lblCPF);
-        button = (Button) findViewById(R.id.button);
+        imagem = (ImageView) findViewById(R.id.imageView3) ;
+        //button = (Button) findViewById(R.id.button);
         MySingleton mDados = MySingleton.getInstance();
         obter_agendamento(mDados.getUserId());
 
+
+        /*listView.setTranslationX(-1000);
+        listView.animate().translationX(0).setDuration(2000);
+*/
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String textoNome = agendamento[position];
 
-                Toast.makeText(getApplicationContext(),textoNome,Toast.LENGTH_LONG).show();
+
+
+                //listView.animate().translationX(0f).setDuration(1000);
+                Toast.makeText(getApplicationContext(),textoNome,Toast.LENGTH_SHORT).show();
             }
         });
 
         MeuAdaptadorCustom adaptador;
+
+        info_usuario.setTranslationX(-1000);
+        lblCPF.setTranslationX(-1000);
+        info_usuario.animate().translationX(0f).setDuration(800);
+        lblCPF.animate().translationX(0f).setDuration(800);
+        imagem.setTranslationY(-1000);
+        imagem.animate().translationY(0f).setDuration(800);
+
+
+        listView.setTranslationY(1000);
+        listView.animate().translationY(0f).setDuration(800);
+       ;
 
         int i = 0;
 
@@ -66,7 +89,9 @@ public class Agenda extends AppCompatActivity {
 
         for (String nome:id_agend){
             MeuFornecedorDados fornecedor =  new MeuFornecedorDados(nome,hora_agend[i],data_agend[i]);
+
             adaptador.add(fornecedor);
+
             i++;
 
         }
@@ -75,15 +100,37 @@ public class Agenda extends AppCompatActivity {
         lblCPF.setText(mDados.getCpf());
         listView.setAdapter(adaptador);
 
-        button.setOnClickListener(new View.OnClickListener() {
+       /* button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Agenda.this, MainActivity.class));
                 finish();
             }
-        });
+        });*/
 
     }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return  true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings){
+            startActivity(new Intent(Agenda.this, MainActivity.class));
+            finish();
+            Toast.makeText(getApplicationContext(),"Saindo...",Toast.LENGTH_SHORT).show();
+            return  true;
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
     public void obter_agendamento(String id){
         InputStream isr = null;
@@ -135,7 +182,7 @@ public class Agenda extends AppCompatActivity {
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                    //SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
                     id_agendamento.add(jsonObject.getString("id_agendamento"));
                     hora.add(jsonObject.getString("hora_horario"));
@@ -160,6 +207,8 @@ public class Agenda extends AppCompatActivity {
            // cpf_user = (String[]) cpf.toArray(new String[0]);
 
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, agendamento);
+
+
             listView.setAdapter(adapter);
 
 

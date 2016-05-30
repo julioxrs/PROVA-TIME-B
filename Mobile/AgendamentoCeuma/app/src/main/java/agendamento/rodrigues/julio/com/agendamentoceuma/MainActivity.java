@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                     IdUsuario id_user = new IdUsuario();
                     id_user.getUserId(campoEmail.getText().toString());
 
-
+                    Toast.makeText(getApplication(), "Carregando...", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(MainActivity.this, Agenda.class));
                     finish();
 
@@ -152,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
 
 
