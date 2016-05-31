@@ -1,0 +1,14 @@
+
+
+Para ter acesso ao Webservice siga as instruções:
+
+1) Clone o projeto e abra no Android Studio;
+2) Obtenha o ip PC que está o servidor e o webservice;
+3) Na pasta do projeto que contém os aquivos .java
+4) Abra o arquivo Agenda.java e na linha 140 altere para o ip do PC que ta rodando o webservice;
+5) Abra o arquivo IdUsuario.java e na linha 29 altere para o ip do PC que ta rodando o webservice;
+6) Abra o arquivo MainActivity.java e na linha 69 altere para o ip do PC que ta rodando o webservice;
+7) Após trocar o ip rode a aplicação, pode ser no emulador ou em um dispositivo físico.
+
+Obs.: Para funcionar não esqueça que o seu computador ou o dispositivo físico tem que estar conectado a mesma rede que o webservice.
+
